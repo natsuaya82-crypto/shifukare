@@ -1,101 +1,57 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #ffffff;
-            overflow: hidden;
-        }
-
-        .container {
-            text-align: center;
-            color: #333;
-            padding: 40px;
-            animation: fadeIn 1.5s ease-in;
-        }
-
-        h1 {
-            font-size: 4rem;
-            font-weight: 300;
-            letter-spacing: 0.1em;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-
-        .subtitle {
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: 40px;
-            color: #555;
-        }
-
-        .dots {
-            display: inline-block;
-            animation: loading 1.5s infinite;
-        }
-
-        .loader {
-            width: 60px;
-            height: 60px;
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-top: 4px solid #2c3e50;
-            border-radius: 50%;
-            margin: 40px auto;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes loading {
-            0%, 20% { content: '.'; }
-            40% { content: '..'; }
-            60%, 100% { content: '...'; }
-        }
-
-        /* レスポンシブ対応 */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            .subtitle {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Coming Soon</h1>
-        <p class="subtitle">公開までしばらくお待ちください。</p>
-        <div class="loader"></div>
-    </div>
-</body>
-</html>
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101827"><title>CARDKEEP — TCG TOWER</title>
+<style>
+:root{color-scheme:dark;--bg:#101827;--panel:#19283d;--gold:#f4c96b;--muted:#a9b7ca}*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#0b1321,#1b2b42);color:#f5f6f8;font:14px system-ui,-apple-system,sans-serif}.app{max-width:1050px;margin:auto;padding:12px}.head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.brand{color:var(--gold);font-weight:950;letter-spacing:.14em;font-size:20px}.tag{font-size:10px;color:var(--muted);letter-spacing:.12em}.pill{border:1px solid #405573;background:#22334c;border-radius:99px;padding:7px 10px;font-size:11px}.arena{border:1px solid #536983;border-radius:15px;overflow:hidden;background:#8db5bd;box-shadow:0 12px 30px #0006}.hud{display:flex;align-items:center;gap:10px;padding:10px;background:#111d2eea}.hp{flex:1;min-width:0}.hp label{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}.bar{height:8px;background:#34445a;border-radius:8px;overflow:hidden}.bar i{display:block;height:100%;background:#63b9ff;width:100%}.bar.red i{background:#ff7777}.clock{font-weight:900;text-align:center;min-width:55px}canvas{display:block;width:100%;height:auto;touch-action:manipulation}.row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:11px 0}.energy{display:flex;align-items:center;gap:10px;background:#1d3049;border:1px solid #405a7b;border-radius:12px;padding:8px 13px}.energy strong{font-size:22px;color:#83d4ff}.actions{display:flex;gap:8px}button{font:inherit;color:inherit;cursor:pointer}.action{border:1px solid #98743a;background:linear-gradient(#72572b,#3c301f);border-radius:10px;padding:10px 13px;font-weight:800}.action:disabled{opacity:.4}.hand{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.card{position:relative;border:1px solid #61758e;border-radius:11px;min-height:112px;padding:7px 4px;background:linear-gradient(150deg,#304662,#17273d);text-align:center}.card.spell{background:linear-gradient(150deg,#514174,#25203e);border-color:#947bc4}.card.sel{outline:2px solid var(--gold);box-shadow:0 0 15px #f4c96b66}.cost{position:absolute;top:5px;left:5px;background:#17618e;border:1px solid #a1e4ff;border-radius:50%;width:23px;height:23px;display:grid;place-items:center;font-weight:900}.ico{font-size:26px;margin:16px 0 3px}.card b{font-size:12px;display:block}.card small{font-size:9px;color:#c0cbd9;display:block;margin-top:3px}.hint{text-align:center;color:var(--muted);font-size:11px;margin:9px 0}.log{background:#101b2b;border-radius:10px;padding:11px;color:#d4deea;min-height:42px}.foot{display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--muted);font-size:11px;margin-top:9px}.secondary{background:#1d2d43;border:1px solid #4c6380;border-radius:8px;padding:7px 10px}.overlay{display:none;position:fixed;inset:0;background:#050b13d9;place-items:center;padding:20px}.modal{background:#1c2c43;border:1px solid #637891;border-radius:16px;padding:24px;text-align:center;max-width:360px}.modal h2{color:var(--gold)}.primary{background:var(--gold);color:#1b1b1b;border:0;border-radius:9px;padding:11px 18px;font-weight:900}@media(max-width:600px){.app{padding:8px}.brand{font-size:17px}.pill{font-size:10px;padding:6px 8px}.hud{padding:8px;gap:6px}.hp label{font-size:9px}.clock{font-size:12px;min-width:42px}.hand{gap:5px}.card{min-height:104px}.ico{font-size:22px}.card b{font-size:10px}.card small{font-size:8px}.action{font-size:11px;padding:9px 10px}.energy{padding:7px 9px}.foot{font-size:10px}}
+</style></head><body><main class="app">
+<header class="head"><div><div class="brand">♜ CARDKEEP</div><div class="tag">TCG × TOWER DEFENSE · PLAYTEST 0.2</div></div><div><span class="pill">YOU <b style="color:#83caff">BLUE</b></span> <span class="pill">CPU <b style="color:#ff9292">RED</b></span></div></header>
+<section class="arena"><div class="hud"><div class="hp"><label><b>🏰 あなたの城</b><b id="phpt">100 / 100</b></label><div class="bar"><i id="php"></i></div></div><div class="clock"><span id="clock">00:00</span><div class="tag">BATTLE</div></div><div class="hp"><label><b>敵の城 🏰</b><b id="ehpt">100 / 100</b></label><div class="bar red"><i id="ehp"></i></div></div></div><canvas id="field" width="900" height="360"></canvas></section>
+<div class="row"><div class="energy"><span style="font-size:22px;color:#83d4ff">◆</span><div><div class="tag">ENERGY</div><strong id="energy">5</strong><span style="color:var(--muted)"> / 10 · +0.75/s</span></div></div><div class="actions"><button class="action" id="skill">⚔ エクスカリバー</button><button class="action" id="resetTop">↻ リセット</button></div></div>
+<div class="hand" id="hand"></div><div class="hint">カードを選んで戦場をタップ。ユニットは自動で戦い、スペルは選択地点に発動。</div><div class="log" id="log">戦闘開始！カードを使って敵の城を破壊しよう。</div><div class="foot"><span>山札 <b id="deck">35</b>　墓地 <b id="grave">0</b></span><span>CARDKEEP · CPU MATCH</span><button class="secondary" id="reset">最初から</button></div>
+</main><div class="overlay" id="overlay"><div class="modal"><h2 id="result">VICTORY!</h2><p id="resultText"></p><button class="primary" id="again">もう一度</button></div></div>
+<script>
+(()=>{
+const $=id=>document.getElementById(id),c=$('field'),g=c.getContext('2d'),W=900,H=360;
+const cards={
+s:{name:'聖剣の剣士',ico:'⚔️',cost:5,kind:'unit',hp:130,atk:19,range:38,speed:34,rate:.9,desc:'前衛・範囲必殺技'},
+a:{name:'弓兵',ico:'🏹',cost:3,kind:'unit',hp:62,atk:13,range:165,speed:25,rate:1.15,desc:'遠距離・対剣士'},
+g:{name:'盾騎士',ico:'🛡️',cost:4,kind:'unit',hp:185,atk:9,range:35,speed:17,rate:1.2,desc:'高耐久・前衛を守る'},
+m:{name:'魔術師',ico:'🔮',cost:5,kind:'unit',hp:76,atk:25,range:145,speed:19,rate:1.5,desc:'魔法・範囲攻撃'},
+h:{name:'ヒール',ico:'✨',cost:3,kind:'spell',desc:'味方全員を55回復'},
+d:{name:'分身',ico:'👥',cost:4,kind:'spell',desc:'近くの味方の分身を作る'},
+f:{name:'メテオ',ico:'☄️',cost:6,kind:'spell',desc:'指定地点に大ダメージ'}
+};
+let units=[],shots=[],fx=[],deck=[],hand=[],grave=[],energy=5,ehp=100,php=100,t=0,sel=-1,done=false,skillReady=true,enemyClock=2.8,drawClock=0,last=0;
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){let j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+function log(s){$('log').textContent=s}
+function drawCard(){if(!deck.length&&grave.length){deck=shuffle(grave.splice(0))}if(deck.length&&hand.length<5)hand.push(deck.pop());render()}
+function render(){ $('hand').innerHTML='';hand.forEach((id,i)=>{let d=cards[id],b=document.createElement('button');b.className='card '+(d.kind==='spell'?'spell ':'')+(sel===i?'sel':'');b.innerHTML='<span class="cost">'+d.cost+'</span><div class="ico">'+d.ico+'</div><b>'+d.name+'</b><small>'+d.desc+'</small>';b.onclick=()=>{if(done)return;if(energy<d.cost){log('エネルギーが足りない');return}sel=sel===i?-1:i;render();log(d.kind==='spell'?'効果を使う場所をタップ':'ユニットの配置場所をタップ')};$('hand').appendChild(b)});$('deck').textContent=deck.length;$('grave').textContent=grave.length}
+function spawn(id,team,x){let d=id==='e'?{hp:95,atk:12,range:38,speed:23,rate:1.1}:cards[id];units.push({id,team,x,y:team==='b'?250:170,hp:d.hp,max:d.hp,atk:d.atk,range:d.range,speed:d.speed,rate:d.rate,cd:0,flash:0})}
+function use(x){if(sel<0||done)return;let id=hand[sel],d=cards[id];if(energy<d.cost)return;
+ if(d.kind==='unit'){spawn(id,'b',Math.max(85,Math.min(815,x)));log(d.name+'を召喚！')}
+ else if(id==='h'){units.filter(u=>u.team==='b').forEach(u=>u.hp=Math.min(u.max,u.hp+55));log('ヒール！味方を回復')}
+ else if(id==='f'){units.filter(u=>u.team==='r'&&Math.abs(u.x-x)<130).forEach(u=>{u.hp-=78;u.flash=.3});fx.push({x,y:190,r:95,life:.6,col:'#ffae58'});log('メテオ！敵を焼き払う')}
+ else if(id==='d'){let u=units.filter(u=>u.team==='b').sort((a,b)=>Math.abs(a.x-x)-Math.abs(b.x-x))[0];if(!u||Math.abs(u.x-x)>135){log('分身させる味方の近くをタップ');return}units.push({...u,hp:Math.max(25,u.hp*.65),max:u.max*.65,cd:0,flash:0,x:Math.min(810,u.x+24)});log('分身を召喚！')}
+ energy-=d.cost;grave.push(id);hand.splice(sel,1);sel=-1;drawCard();render();hud()
+}
+function hud(){$('energy').textContent=Math.floor(energy);$('phpt').textContent=Math.ceil(php)+' / 100';$('ehpt').textContent=Math.ceil(ehp)+' / 100';$('php').style.width=Math.max(0,php)+'%';$('ehp').style.width=Math.max(0,ehp)+'%';$('skill').disabled=!skillReady||done}
+function finish(win){done=true;$('result').textContent=win?'VICTORY!':'DEFEAT';$('resultText').textContent=win?'敵城を撃破！カードの組み合わせが勝利の鍵。':'城が陥落した。デッキを変えて再挑戦しよう。';$('overlay').style.display='grid'}
+function reset(){units=[];shots=[];fx=[];deck=shuffle(['s','s','s','s','a','a','a','a','a','g','g','g','m','m','m','h','h','h','d','d','f','f','a','g','s','m','h','d','f','a','g','s','m','h','a','g','d','f','s','a']);hand=[];grave=[];energy=5;ehp=php=100;t=0;sel=-1;done=false;skillReady=true;enemyClock=2.8;drawClock=0;for(let i=0;i<5;i++)drawCard();$('overlay').style.display='none';log('戦闘開始！カードを使って敵の城を破壊しよう。');hud()}
+function skill(){if(!skillReady||done)return;let targets=units.filter(u=>u.team==='r'&&u.x<560);if(!targets.length){log('エクスカリバーの射程内に敵がいない！');return}targets.forEach(u=>{u.hp-=100;u.flash=.35});fx.push({x:520,y:205,r:220,life:.65,col:'#ffe27a'});skillReady=false;log('聖剣解放！エクスカリバー！');setTimeout(()=>{skillReady=true;hud()},9000);hud()}
+$('skill').onclick=skill;$('reset').onclick=reset;$('resetTop').onclick=reset;$('again').onclick=reset;
+c.addEventListener('pointerdown',e=>{let r=c.getBoundingClientRect();use((e.clientX-r.left)/r.width*W)});
+function castle(x,blue){g.fillStyle=blue?'#3477a8':'#a84b4b';g.fillRect(x-24,160,48,118);g.fillRect(x-32,150,14,40);g.fillRect(x+18,150,14,40);g.fillStyle='#e9d8ae';g.fillRect(x-7,230,14,48);g.fillStyle=blue?'#a9e0ff':'#ffc1b2';g.beginPath();g.moveTo(x,115);g.lineTo(x+20,150);g.lineTo(x-20,150);g.fill()}
+function paint(){g.clearRect(0,0,W,H);let sky=g.createLinearGradient(0,0,0,H);sky.addColorStop(0,'#8dbdc9');sky.addColorStop(.7,'#c5cba7');sky.addColorStop(1,'#657d59');g.fillStyle=sky;g.fillRect(0,0,W,H);g.fillStyle='#72998d';g.beginPath();g.moveTo(0,220);for(let x=0;x<=W;x+=80)g.lineTo(x,145+Math.sin(x*.015)*22);g.lineTo(W,290);g.lineTo(0,290);g.fill();g.fillStyle='#b8bd8d';g.fillRect(0,250,W,110);g.fillStyle='#566e50';g.fillRect(0,285,W,75);g.strokeStyle='#d4c59a';g.lineWidth=3;g.setLineDash([12,12]);g.beginPath();g.moveTo(65,275);g.lineTo(835,275);g.stroke();g.setLineDash([]);castle(42,true);castle(858,false);
+ units.forEach(u=>{let b=u.team==='b';g.save();g.translate(u.x,u.y);if(!b)g.scale(-1,1);g.fillStyle='#0004';g.beginPath();g.ellipse(0,22,19,6,0,0,7);g.fill();g.fillStyle=u.flash>0?'#fff':b?'#286da4':'#a84444';g.strokeStyle=b?'#c5eaff':'#ffd0c8';g.lineWidth=2;
+ if(u.id==='s'){g.beginPath();g.arc(0,-20,9,0,7);g.fill();g.fillRect(-9,-10,18,29);g.strokeRect(-9,-10,18,29);g.strokeStyle='#ffe79a';g.lineWidth=4;g.beginPath();g.moveTo(10,-10);g.lineTo(27,-39);g.stroke()}
+ else if(u.id==='a'){g.beginPath();g.arc(0,-19,8,0,7);g.fill();g.fillRect(-7,-10,14,27);g.strokeStyle='#ead39a';g.beginPath();g.arc(12,-10,13,-1,1);g.stroke()}
+ else if(u.id==='g'){g.fillRect(-12,-13,24,32);g.strokeRect(-12,-13,24,32);g.fillStyle='#d7e0e8';g.fillRect(-22,-15,10,27);g.beginPath();g.arc(0,-22,9,0,7);g.fill()}
+ else if(u.id==='m'){g.beginPath();g.moveTo(0,-39);g.lineTo(15,-7);g.lineTo(11,19);g.lineTo(-11,19);g.lineTo(-15,-7);g.fill();g.beginPath();g.arc(0,-26,8,0,7);g.fill();g.fillStyle='#d3b4ff';g.beginPath();g.arc(18,-38,6,0,7);g.fill()}
+ else{g.fillStyle='#713d36';g.beginPath();g.arc(0,-18,12,0,7);g.fill();g.fillRect(-12,-7,24,25);g.fillStyle='#ffe28a';g.fillRect(-6,-21,4,4);g.fillRect(3,-21,4,4)}g.restore();g.fillStyle='#202a36';g.fillRect(u.x-17,u.y-48,34,4);g.fillStyle=b?'#64d5a1':'#ff7979';g.fillRect(u.x-17,u.y-48,34*Math.max(0,u.hp/u.max),4)});
+ shots.forEach(p=>{g.fillStyle=p.col;g.beginPath();g.arc(p.x,p.y,4,0,7);g.fill()});fx.forEach(e=>{g.globalAlpha=e.life/.65;g.strokeStyle=e.col;g.lineWidth=7;g.beginPath();g.arc(e.x,e.y,e.r*(1-e.life/.65),0,7);g.stroke();g.globalAlpha=1});g.fillStyle='#fff';g.font='bold 13px system-ui';g.textAlign='center';g.fillText('BATTLEFIELD',450,25)}
+function update(dt){if(done)return;t+=dt;energy=Math.min(10,energy+dt*.75);enemyClock+=dt;drawClock+=dt;if(drawClock>5.5){drawClock=0;drawCard()}if(enemyClock>4.1){enemyClock=0;let id=Math.random()<.45?'e':Math.random()<.5?'a':'m';spawn(id,'r',810)}
+ units.forEach(u=>{u.cd-=dt;u.flash=Math.max(0,u.flash-dt);let foes=units.filter(v=>v.team!==u.team&&Math.abs(v.x-u.x)<u.range+15).sort((a,b)=>Math.abs(a.x-u.x)-Math.abs(b.x-u.x));if(foes.length){if(u.cd<=0){shots.push({x:u.x,y:u.y-20,target:foes[0],d:u.atk,col:u.team==='b'?'#9ee1ff':'#ffad9c',speed:340});u.cd=u.rate}}else u.x+=(u.team==='b'?1:-1)*u.speed*dt;if(u.team==='b'&&u.x>830){ehp-=9;u.hp=0;log('味方が敵城に攻撃！')}if(u.team==='r'&&u.x<70){php-=9;u.hp=0;log('敵が自陣の城に攻撃！')}});
+ shots.forEach(p=>{if(p.target.hp<=0){p.dead=true;return}let dx=p.target.x-p.x,dy=p.target.y-20-p.y,d=Math.hypot(dx,dy);if(d<8){p.target.hp-=p.d;p.dead=true}else{p.x+=dx/d*p.speed*dt;p.y+=dy/d*p.speed*dt}});shots=shots.filter(p=>!p.dead);units=units.filter(u=>u.hp>0&&u.x>15&&u.x<885);fx.forEach(e=>e.life-=dt);fx=fx.filter(e=>e.life>0);if(php<=0)finish(false);if(ehp<=0)finish(true);hud()}
+function loop(now){let dt=Math.min(.05,(now-last)/1000||0);last=now;update(dt);paint();$('clock').textContent=String(t/60|0).padStart(2,'0')+':'+String(t%60|0).padStart(2,'0');requestAnimationFrame(loop)}
+reset();requestAnimationFrame(loop);
+})();
+</script></body></html>
