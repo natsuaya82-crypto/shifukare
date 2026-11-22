@@ -2,9 +2,54 @@
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101827"><title>CARDKEEP — TCG TOWER</title><!-- pages deploy refresh -->
 <style>
 :root{color-scheme:dark;--bg:#101827;--panel:#19283d;--gold:#f4c96b;--muted:#a9b7ca}*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#0b1321,#1b2b42);color:#f5f6f8;font:14px system-ui,-apple-system,sans-serif}.app{max-width:1050px;margin:auto;padding:12px}.head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.brand{color:var(--gold);font-weight:950;letter-spacing:.14em;font-size:20px}.tag{font-size:10px;color:var(--muted);letter-spacing:.12em}.pill{border:1px solid #405573;background:#22334c;border-radius:99px;padding:7px 10px;font-size:11px}.arena{border:1px solid #536983;border-radius:15px;overflow:hidden;background:#8db5bd;box-shadow:0 12px 30px #0006}.hud{display:flex;align-items:center;gap:10px;padding:10px;background:#111d2eea}.hp{flex:1;min-width:0}.hp label{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}.bar{height:8px;background:#34445a;border-radius:8px;overflow:hidden}.bar i{display:block;height:100%;background:#63b9ff;width:100%}.bar.red i{background:#ff7777}.clock{font-weight:900;text-align:center;min-width:55px}canvas{display:block;width:100%;height:auto;touch-action:manipulation}.row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:11px 0}.energy{display:flex;align-items:center;gap:10px;background:#1d3049;border:1px solid #405a7b;border-radius:12px;padding:8px 13px}.energy strong{font-size:22px;color:#83d4ff}.actions{display:flex;gap:8px}button{font:inherit;color:inherit;cursor:pointer}.action{border:1px solid #98743a;background:linear-gradient(#72572b,#3c301f);border-radius:10px;padding:10px 13px;font-weight:800}.action:disabled{opacity:.4}.hand{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.card{position:relative;border:1px solid #61758e;border-radius:11px;min-height:112px;padding:7px 4px;background:linear-gradient(150deg,#304662,#17273d);text-align:center}.card.spell{background:linear-gradient(150deg,#514174,#25203e);border-color:#947bc4}.card.sel{outline:2px solid var(--gold);box-shadow:0 0 15px #f4c96b66}.cost{position:absolute;top:5px;left:5px;background:#17618e;border:1px solid #a1e4ff;border-radius:50%;width:23px;height:23px;display:grid;place-items:center;font-weight:900}.ico{font-size:26px;margin:16px 0 3px}.card b{font-size:12px;display:block}.card small{font-size:9px;color:#c0cbd9;display:block;margin-top:3px}.hint{text-align:center;color:var(--muted);font-size:11px;margin:9px 0}.log{background:#101b2b;border-radius:10px;padding:11px;color:#d4deea;min-height:42px}.foot{display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--muted);font-size:11px;margin-top:9px}.secondary{background:#1d2d43;border:1px solid #4c6380;border-radius:8px;padding:7px 10px}.overlay{display:none;position:fixed;inset:0;background:#050b13d9;place-items:center;padding:20px}.modal{background:#1c2c43;border:1px solid #637891;border-radius:16px;padding:24px;text-align:center;max-width:360px}.modal h2{color:var(--gold)}.primary{background:var(--gold);color:#1b1b1b;border:0;border-radius:9px;padding:11px 18px;font-weight:900}@media(max-width:600px){.app{padding:8px}.brand{font-size:17px}.pill{font-size:10px;padding:6px 8px}.hud{padding:8px;gap:6px}.hp label{font-size:9px}.clock{font-size:12px;min-width:42px}.hand{gap:5px}.card{min-height:104px}.ico{font-size:22px}.card b{font-size:10px}.card small{font-size:8px}.action{font-size:11px;padding:9px 10px}.energy{padding:7px 9px}.foot{font-size:10px}}
+
+/* CARDKEEP art direction v1 — landscape-first */
+@media (orientation:portrait) and (max-width:900px){body:before{content:"横向きにすると戦場が広く表示されます ↻";position:sticky;top:0;z-index:20;display:block;text-align:center;background:#0d1929;color:#f4c96b;padding:7px;font-size:12px}}
+.app{max-width:1440px;padding:10px 16px}
+.head{margin-bottom:7px}.brand{font-size:22px}
+.arena{position:relative;aspect-ratio:16/7.1;background:#91c4d0}
+.hud{position:absolute;z-index:3;left:0;right:0;top:0;background:linear-gradient(90deg,#101c2deF,#17263ad9);border-bottom:1px solid #d4b66a}
+.battle-bg{position:absolute;inset:0;overflow:hidden}
+.battle-bg svg{width:100%;height:100%;display:block}
+#field{position:absolute;inset:0;width:100%;height:100%;z-index:2}
+.row{margin:8px 0}.hand{gap:10px}.card{min-height:104px;box-shadow:0 5px 12px #0004}.card.sel{transform:translateY(-5px)}
+@media (orientation:landscape) and (max-height:560px){.app{padding:5px 12px}.head{margin-bottom:4px}.brand{font-size:16px}.tag{font-size:9px}.arena{aspect-ratio:16/6.5;max-height:44vh}.hud{padding:5px 10px}.row{margin:5px 0}.card{min-height:82px;padding:4px}.ico{font-size:20px;margin:12px 0 1px}.card small{font-size:8px}.hint{margin:4px 0}.log{padding:6px;min-height:30px}.foot{margin-top:4px}}
 </style></head><body><main class="app">
 <header class="head"><div><div class="brand">♜ CARDKEEP</div><div class="tag">TCG × TOWER DEFENSE · PLAYTEST 0.2</div></div><div><span class="pill">YOU <b style="color:#83caff">BLUE</b></span> <span class="pill">CPU <b style="color:#ff9292">RED</b></span></div></header>
-<section class="arena"><div class="hud"><div class="hp"><label><b>🏰 あなたの城</b><b id="phpt">100 / 100</b></label><div class="bar"><i id="php"></i></div></div><div class="clock"><span id="clock">00:00</span><div class="tag">BATTLE</div></div><div class="hp"><label><b>敵の城 🏰</b><b id="ehpt">100 / 100</b></label><div class="bar red"><i id="ehp"></i></div></div></div><canvas id="field" width="900" height="360"></canvas></section>
+<section class="arena"><div class="hud"><div class="hp"><label><b>🏰 あなたの城</b><b id="phpt">100 / 100</b></label><div class="bar"><i id="php"></i></div></div><div class="clock"><span id="clock">00:00</span><div class="tag">BATTLE</div></div><div class="hp"><label><b>敵の城 🏰</b><b id="ehpt">100 / 100</b></label><div class="bar red"><i id="ehp"></i></div></div></div><div class="battle-bg" aria-hidden="true"><svg viewBox="0 0 1600 650" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+<defs>
+ <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#54a6e4"/><stop offset=".58" stop-color="#c4e8ef"/><stop offset="1" stop-color="#f6d69b"/></linearGradient>
+ <linearGradient id="field" x2="0" y2="1"><stop stop-color="#a9c96d"/><stop offset=".45" stop-color="#789e4f"/><stop offset="1" stop-color="#4b6944"/></linearGradient>
+ <linearGradient id="road" x2="0" y2="1"><stop stop-color="#d9c28c"/><stop offset="1" stop-color="#8c7959"/></linearGradient>
+ <linearGradient id="stone" x2="0" y2="1"><stop stop-color="#fff1cf"/><stop offset="1" stop-color="#a7b5b5"/></linearGradient>
+ <linearGradient id="blue" x2="0" y2="1"><stop stop-color="#398acb"/><stop offset="1" stop-color="#173d75"/></linearGradient>
+ <linearGradient id="red" x2="0" y2="1"><stop stop-color="#df6c64"/><stop offset="1" stop-color="#7e2635"/></linearGradient>
+</defs>
+<rect width="1600" height="650" fill="url(#sky)"/>
+<g fill="#fff" opacity=".7"><ellipse cx="280" cy="112" rx="150" ry="30"/><ellipse cx="360" cy="99" rx="92" ry="38"/><ellipse cx="1100" cy="90" rx="170" ry="28"/><ellipse cx="1180" cy="76" rx="95" ry="38"/></g>
+<path d="M0 300L190 190 320 280 490 155 680 295 850 170 1040 285 1230 150 1450 280 1600 190V460H0Z" fill="#729bb0"/>
+<path d="M0 350L180 245 320 320 510 220 690 335 870 230 1060 330 1240 210 1430 330 1600 245V500H0Z" fill="#568d83"/>
+<path d="M0 405Q260 320 500 390T980 375T1600 365V650H0Z" fill="url(#field)"/>
+<path d="M0 485Q390 410 800 470T1600 450V650H0Z" fill="#688d4e"/>
+<path d="M0 560Q400 470 800 520T1600 505V650H0Z" fill="url(#road)"/>
+<path d="M0 588Q400 505 800 555T1600 540" fill="none" stroke="#ead9a9" stroke-width="8" opacity=".55"/>
+<!-- distant citadel -->
+<g opacity=".8" fill="#d9e6e6" stroke="#7d9ca8" stroke-width="5"><path d="M700 275V195h42v80m20 0V155h55v120m25 0V185h42v90m-184 0h250v20H658v-20Z"/><path d="M770 155l25-55 25 55m-115 40l17-37 17 37m114 0l17-37 17 37" fill="#8aa9b5"/></g>
+<!-- left blue fortress -->
+<g stroke="#637e92" stroke-width="7"><path d="M0 365V210L65 145 130 210V365Z" fill="url(#stone)"/><path d="M105 365V175L190 105 275 175V365Z" fill="url(#stone)"/><path d="M250 365V215L315 155 380 215V365Z" fill="url(#stone)"/><path d="M0 230h380v35H0Z" fill="#e7e6d5"/><path d="M30 210l35-70 35 70m40-35l50-82 50 82m35 40l65-65 65 65" fill="url(#blue)"/></g>
+<g fill="#2d79b8"><path d="M180 104V35l72 25-72 25Z"/><path d="M65 143V80l57 20-57 20Z"/></g>
+<g fill="#f6d16b"><path d="M180 48l8 18 18 2-14 12 4 18-16-9-16 9 4-18-14-12 18-2Z"/></g>
+<path d="M140 365v-80q50-75 100 0v80" fill="#29465b" stroke="#d9cda9" stroke-width="10"/>
+<!-- right red fortress -->
+<g stroke="#795e69" stroke-width="7"><path d="M1220 365V215L1285 155 1350 215V365Z" fill="url(#stone)"/><path d="M1325 365V175L1410 105 1495 175V365Z" fill="url(#stone)"/><path d="M1460 365V210L1530 145 1600 210V365Z" fill="url(#stone)"/><path d="M1220 230h380v35h-380Z" fill="#e7e0d6"/><path d="M1250 210l35-70 35 70m40-35l50-82 50 82m35 40l65-65 65 65" fill="url(#red)"/></g>
+<g fill="#c64c50"><path d="M1410 104V35l-72 25 72 25Z"/><path d="M1530 143V80l-57 20 57 20Z"/></g>
+<g fill="#f5d174"><path d="M1410 48l8 18 18 2-14 12 4 18-16-9-16 9 4-18-14-12 18-2Z"/></g>
+<path d="M1360 365v-80q50-75 100 0v80" fill="#4c3444" stroke="#d9cda9" stroke-width="10"/>
+<!-- grass, flowers, stones -->
+<g fill="#f4e7bb"><circle cx="440" cy="438" r="6"/><circle cx="456" cy="447" r="5"/><circle cx="1120" cy="425" r="6"/><circle cx="1140" cy="438" r="5"/><circle cx="590" cy="480" r="5"/><circle cx="1010" cy="478" r="5"/></g>
+<g fill="#477047"><path d="M430 460l-15-24 20 15 8-26 4 29 22-12-18 24Z"/><path d="M1110 450l-15-24 20 15 8-26 4 29 22-12-18 24Z"/></g>
+<g fill="#8b9a9a"><path d="M510 580l30-20 34 18-10 22h-48Z"/><path d="M1060 565l25-22 40 12 5 25h-60Z"/></g>
+</svg></div><canvas id="field" width="900" height="360"></canvas></section>
 <div class="row"><div class="energy"><span style="font-size:22px;color:#83d4ff">◆</span><div><div class="tag">ENERGY</div><strong id="energy">5</strong><span style="color:var(--muted)"> / 10 · +0.75/s</span></div></div><div class="actions"><button class="action" id="skill">⚔ エクスカリバー</button><button class="action" id="resetTop">↻ リセット</button></div></div>
 <div class="hand" id="hand"></div><div class="hint">カードを選んで戦場をタップ。ユニットは自動で戦い、スペルは選択地点に発動。</div><div class="log" id="log">戦闘開始！カードを使って敵の城を破壊しよう。</div><div class="foot"><span>山札 <b id="deck">35</b>　墓地 <b id="grave">0</b></span><span>CARDKEEP · CPU MATCH</span><button class="secondary" id="reset">最初から</button></div>
 </main><div class="overlay" id="overlay"><div class="modal"><h2 id="result">VICTORY!</h2><p id="resultText"></p><button class="primary" id="again">もう一度</button></div></div>
@@ -40,7 +85,7 @@ function skill(){if(!skillReady||done)return;let targets=units.filter(u=>u.team=
 $('skill').onclick=skill;$('reset').onclick=reset;$('resetTop').onclick=reset;$('again').onclick=reset;
 c.addEventListener('pointerdown',e=>{let r=c.getBoundingClientRect();use((e.clientX-r.left)/r.width*W)});
 function castle(x,blue){g.fillStyle=blue?'#3477a8':'#a84b4b';g.fillRect(x-24,160,48,118);g.fillRect(x-32,150,14,40);g.fillRect(x+18,150,14,40);g.fillStyle='#e9d8ae';g.fillRect(x-7,230,14,48);g.fillStyle=blue?'#a9e0ff':'#ffc1b2';g.beginPath();g.moveTo(x,115);g.lineTo(x+20,150);g.lineTo(x-20,150);g.fill()}
-function paint(){g.clearRect(0,0,W,H);let sky=g.createLinearGradient(0,0,0,H);sky.addColorStop(0,'#8dbdc9');sky.addColorStop(.7,'#c5cba7');sky.addColorStop(1,'#657d59');g.fillStyle=sky;g.fillRect(0,0,W,H);g.fillStyle='#72998d';g.beginPath();g.moveTo(0,220);for(let x=0;x<=W;x+=80)g.lineTo(x,145+Math.sin(x*.015)*22);g.lineTo(W,290);g.lineTo(0,290);g.fill();g.fillStyle='#b8bd8d';g.fillRect(0,250,W,110);g.fillStyle='#566e50';g.fillRect(0,285,W,75);g.strokeStyle='#d4c59a';g.lineWidth=3;g.setLineDash([12,12]);g.beginPath();g.moveTo(65,275);g.lineTo(835,275);g.stroke();g.setLineDash([]);castle(42,true);castle(858,false);
+function paint(){g.clearRect(0,0,W,H);
  units.forEach(u=>{let b=u.team==='b';g.save();g.translate(u.x,u.y);if(!b)g.scale(-1,1);g.fillStyle='#0004';g.beginPath();g.ellipse(0,22,19,6,0,0,7);g.fill();g.fillStyle=u.flash>0?'#fff':b?'#286da4':'#a84444';g.strokeStyle=b?'#c5eaff':'#ffd0c8';g.lineWidth=2;
  if(u.id==='s'){g.beginPath();g.arc(0,-20,9,0,7);g.fill();g.fillRect(-9,-10,18,29);g.strokeRect(-9,-10,18,29);g.strokeStyle='#ffe79a';g.lineWidth=4;g.beginPath();g.moveTo(10,-10);g.lineTo(27,-39);g.stroke()}
  else if(u.id==='a'){g.beginPath();g.arc(0,-19,8,0,7);g.fill();g.fillRect(-7,-10,14,27);g.strokeStyle='#ead39a';g.beginPath();g.arc(12,-10,13,-1,1);g.stroke()}
