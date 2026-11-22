@@ -1,4 +1,5 @@
 name: Deploy CARDKEEP to GitHub Pages
+# Fresh full-run deployment after Pages source was enabled
 on:
   push:
     branches: [main]
